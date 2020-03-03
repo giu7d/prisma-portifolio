@@ -12,8 +12,8 @@ export default createGlobalStyle`
   body,
   #root {
     height: 100%;
-    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-family: ${props => props.theme.fonts.normal}, Helvetica, sans-serif;
     font-size: 12px;
-    background-color: #f5f5f5;
+    background-color: ${props => props.theme.colors.light};
   }
 `;
