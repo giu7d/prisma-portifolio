@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createGlobalStyle } from "styled-components";
+import BauhausBackground from "./BauhausBackground";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -16,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 12px;
+    background-color: #f5f5f5;
   }
 `;
 
@@ -24,7 +26,7 @@ function App() {
     <>
       <GlobalStyle />
       <main>
-        <p>Hello World</p>
+        <BauhausBackground />
       </main>
     </>
   );
