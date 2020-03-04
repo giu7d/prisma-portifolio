@@ -73,7 +73,6 @@ export default function Button({
   icon,
   ...props
 }) {
-  console.log(props);
   return (
     <RipplesEffect radius={radius}>
       <StyledButton

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
-import Brand from "components/brand";
+import Brand from "components/Brand";
 import Button from "components/Button";
-import BauhausBG from "components/BauhausBackground";
+import { Background } from "components/Bauhaus";
 
-const Background = styled(BauhausBG)`
+const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -18,7 +18,7 @@ const Foreground = styled.div`
   left: 0;
 `;
 
-const Wrapper = styled.main`
+const Main = styled.main`
   display: grid;
   padding: ${({ theme }) => theme.spacing.large + "px"};
   height: 100%;
@@ -26,20 +26,21 @@ const Wrapper = styled.main`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 180px;
   grid-row-gap: ${({ theme }) => theme.spacing.xlarge + "px"};
+
   div {
     display: grid;
     align-items: center;
   }
 `;
 
-export default function Main(props) {
+export default function MainScreen() {
   const theme = useContext(ThemeContext);
 
   return (
-    <>
+    <Wrapper>
       <Background />
       <Foreground>
-        <Wrapper>
+        <Main>
           <div>
             <Brand.Title>Prisma</Brand.Title>
             <Brand.Divider />
@@ -54,7 +55,6 @@ export default function Main(props) {
             >
               Saiba mais
             </Button>
-
             <Button
               background="rgba(0,0,0,0.3)"
               color={theme.colors.xlight}
@@ -65,8 +65,8 @@ export default function Main(props) {
               Entre em contato
             </Button>
           </div>
-        </Wrapper>
+        </Main>
       </Foreground>
-    </>
+    </Wrapper>
   );
 }
