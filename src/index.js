@@ -10,6 +10,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Main />
+      <div
+        style={{ height: 1000, width: "100%", background: theme.colors.dark }}
+      ></div>
     </ThemeProvider>
   );
 }

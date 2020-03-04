@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 import Brand from "components/Brand";
 import Button from "components/Button";
 import { Background } from "components/Bauhaus";
+import { useSpring, animated } from "react-spring";
+
+const AnimatedBrandTitle = animated(Brand.Title);
+const AnimatedBrandDivider = animated(Brand.Divider);
+const AnimatedBrandSubtitle = animated(Brand.Subtitle);
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,8 +24,8 @@ const Foreground = styled.div`
 `;
 
 const Main = styled.main`
+  /* padding: ${({ theme }) => theme.spacing.large + "px"}; */
   display: grid;
-  padding: ${({ theme }) => theme.spacing.large + "px"};
   height: 100%;
   width: 100%;
   grid-template-columns: 1fr;
@@ -34,19 +39,50 @@ const Main = styled.main`
 `;
 
 export default function MainScreen() {
+  const [scrollPosition, setScrollPosition] = useState(window.scrollY);
+
+  window.onscroll = () => setScrollPosition(window.scrollY);
+
   const theme = useContext(ThemeContext);
+
+  const animationToLeft = useSpring({
+    marginLeft: -scrollPosition / 10,
+    config: {}
+  });
+
+  const animationToRight = useSpring({
+    marginLeft: scrollPosition / 2,
+    config: {}
+  });
 
   return (
     <Wrapper>
       <Background />
       <Foreground>
         <Main>
-          <div>
-            <Brand.Title>Prisma</Brand.Title>
-            <Brand.Divider />
-            <Brand.Subtitle>Software com qualidade</Brand.Subtitle>
+          <div
+            style={{
+              position: "relative",
+              overflow: "hidden",
+              paddingLeft: theme.spacing.large
+            }}
+          >
+            <AnimatedBrandTitle style={animationToLeft}>
+              Pris
+              <br />
+              ma
+            </AnimatedBrandTitle>
+            <AnimatedBrandDivider style={animationToRight} />
+            <AnimatedBrandSubtitle style={animationToRight}>
+              Software
+              <br />
+              com
+              <br />
+              qualidade
+            </AnimatedBrandSubtitle>
           </div>
-          <div>
+
+          <div style={{ padding: `0 ${theme.spacing.large}px` }}>
             <Button
               background={theme.colors.dark}
               color={theme.colors.xlight}

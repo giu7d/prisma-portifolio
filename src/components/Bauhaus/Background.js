@@ -57,16 +57,15 @@ export default function Background() {
       />
 
       <Block
-        color="#9D3BE0"
-        initialPositon={["0%", "0%", "auto", "auto"]}
-        size={["150px", "35%"]}
-        isAnimated={isAnimated}
-      />
-
-      <Block
         color="#f7921e"
         initialPositon={["0%", "auto", "25%", "auto"]}
         size={["100px", "250px"]}
+        isAnimated={isAnimated}
+      />
+      <Block
+        color="#9D3BE0"
+        initialPositon={["0%", "0%", "auto", "auto"]}
+        size={["150px", "35%"]}
         isAnimated={isAnimated}
       />
 

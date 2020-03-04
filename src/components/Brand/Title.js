@@ -11,5 +11,4 @@ export default styled.h1`
   font-size: 95px;
   letter-spacing: 10px;
   text-transform: uppercase;
-  word-break: break-all;
 `;
