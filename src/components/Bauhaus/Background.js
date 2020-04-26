@@ -5,11 +5,12 @@ import Block from "./Block";
 const TIME = 8000;
 
 const Wrapper = styled.div`
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
+  z-index: 1;
 `;
 
 export default function Background() {

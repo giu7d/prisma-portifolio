@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  scroll-snap-align: start;
 `;
 
 const Foreground = styled.div`
@@ -21,6 +22,7 @@ const Foreground = styled.div`
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 5;
 `;
 
 const Main = styled.main`

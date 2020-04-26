@@ -8,6 +8,11 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+  }
+
   html,
   body,
   #root {
